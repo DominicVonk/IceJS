@@ -54,7 +54,7 @@ ice.machine();
 ```js
 //ice.coneWithTaste(taste);
 var sayAttr = ice.coneWithTaste('say'); //Will create [ice-say]
-``
+```
 
 ###Build the attribute string with a value
 ```js
