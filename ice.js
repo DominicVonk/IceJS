@@ -17,14 +17,7 @@ ice = {
       });
     });
   },
-  tastes : {
-    'say' : {
-      'click' : function() {
-        ice.addTaste('helloworld', 'click', function() {console.log('hahaha');});
-        ice.deleteTaste('say');
-        console.log('boo');
-      }
-    }    
+  tastes : {    
   },
   refreshMachine : function() {
     this.machine();
