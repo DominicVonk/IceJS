@@ -36,18 +36,33 @@ ice = {
     if (typeof this.tastes[taste] === "undefined") {
       this.tastes[taste] = {};
     }
-    this.tastes[taste][on] = functionality;
+    if (typeof on === "string") {
+      this.tastes[taste][on] = functionality;
+    } else {
+      $.each(on, function(key, val) {
+        ice.tastes[taste][key] = val;
+      });
+    }
     if (this.machineRunning){
       this.machine();
     }
   },
-  deleteTaste : function(taste) {
+  deleteTaste : function(taste, on) {
     if (this.machineRunning){
-      $.each(this.tastes[taste], function(event, func) {
-        $(ice.coneWithTaste(taste)).off(event, func);
-      });
+      if (typeof on !== "undefined") {
+        $(ice.coneWithTaste(taste)).off(on, this.tastes[taste][on]);
+      } else {
+        $.each(this.tastes[taste], function(event, func) {
+          $(ice.coneWithTaste(taste)).off(event, func);
+        });
+      }
     }
-    delete this.tastes[taste];
+    if (typeof on !== "undefined") {
+      delete this.tastes[taste][on];
+    }
+    else {
+      delete this.tastes[taste];
+    }
     if (this.machineRunning){
       this.machine();
     }
