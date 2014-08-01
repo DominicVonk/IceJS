@@ -67,3 +67,9 @@ var sayAttr = ice.coneWithTaste('say', 'hello'); //Will create [ice-say="hello"]
 //This function could be useful when you add new html elements by javascript.
 ice.refreshMachine();
 ```
+
+###Stop the ice machine
+```js
+//This function will turn all events off that are setted by the ice machine
+ice.stopMachine();
+```
