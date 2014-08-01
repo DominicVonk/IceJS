@@ -17,6 +17,14 @@ ice = {
       });
     });
   },
+  stopMachine : function() {
+    $.each(this.tastes, function(taste, events) {
+      $.each(events, function(event, func) {
+        $(ice.coneWithTaste(taste)).off(event, func);
+      });
+    });
+    this.machineRunning = false;
+  },
   tastes : {    
   },
   refreshMachine : function() {
