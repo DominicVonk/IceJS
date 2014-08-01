@@ -61,3 +61,9 @@ var sayAttr = ice.coneWithTaste('say'); //Will create [ice-say]
 //ice.coneWithTaste(taste, consumer);
 var sayAttr = ice.coneWithTaste('say', 'hello'); //Will create [ice-say="hello"]
 ```
+
+###Refresh the ice machine
+```js
+//This function could be useful when you add new html elements by javascript.
+ice.refreshMachine();
+```
