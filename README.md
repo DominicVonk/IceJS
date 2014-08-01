@@ -60,4 +60,4 @@ var sayAttr = ice.coneWithTaste('say'); //Will create [ice-say]
 ```js
 //ice.coneWithTaste(taste, consumer);
 var sayAttr = ice.coneWithTaste('say', 'hello'); //Will create [ice-say="hello"]
-``
+```
