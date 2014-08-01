@@ -31,6 +31,90 @@
 <a name="ice-js" class="anchor" href="#ice-js"><span class="octicon octicon-link"></span></a>Ice JS</h1>
 
 <p>A javascript library over jQuery for javascript events combined with html attributes.</p>
+
+<h2>
+<a name="howto-use-it" class="anchor" href="#howto-use-it"><span class="octicon octicon-link"></span></a>Howto use it</h2>
+
+<h3>
+<a name="change-cone-attribute-prefix" class="anchor" href="#change-cone-attribute-prefix"><span class="octicon octicon-link"></span></a>Change cone (attribute prefix)</h3>
+
+<div class="highlight highlight-js"><pre><span class="nx">ice</span><span class="p">.</span><span class="nx">cone</span> <span class="o">=</span> <span class="s2">"ice"</span><span class="p">;</span> <span class="c1">//you could change it to any name you want (data or ice preffered.)</span>
+</pre></div>
+
+<h3>
+<a name="add-a-taste-with-functionality" class="anchor" href="#add-a-taste-with-functionality"><span class="octicon octicon-link"></span></a>Add a taste with functionality</h3>
+
+<div class="highlight highlight-js"><pre><span class="c1">//ice.addTaste(taste, event, functionality);</span>
+<span class="nx">ice</span><span class="p">.</span><span class="nx">addTaste</span><span class="p">(</span><span class="s1">'say'</span><span class="p">,</span> <span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="s1">'Hello World'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">//This will trigger when clicked on any element with the ice-say attribute.</span>
+</pre></div>
+
+<h4>
+<a name="add-a-taste-with-multiple-functionalities" class="anchor" href="#add-a-taste-with-multiple-functionalities"><span class="octicon octicon-link"></span></a>Add a taste with multiple functionalities</h4>
+
+<div class="highlight highlight-js"><pre><span class="c1">//ice.addTaste(taste, event array);</span>
+<span class="nx">ice</span><span class="p">.</span><span class="nx">addTaste</span><span class="p">(</span><span class="s1">'say'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="s1">'click'</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">'Hello World!'</span><span class="p">);</span>
+  <span class="p">},</span>
+  <span class="s1">'keydown'</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">//This will trigger when clicked or keypressed on any element with the ice-say attribute.</span>
+</pre></div>
+
+<h3>
+<a name="remove-a-taste" class="anchor" href="#remove-a-taste"><span class="octicon octicon-link"></span></a>Remove a taste</h3>
+
+<div class="highlight highlight-js"><pre><span class="c1">//ice.deleteTaste(taste);</span>
+<span class="nx">ice</span><span class="p">.</span><span class="nx">deleteTaste</span><span class="p">(</span><span class="s1">'say'</span><span class="p">);</span>
+</pre></div>
+
+<h4>
+<a name="remove-the-specific-event-of-a-taste" class="anchor" href="#remove-the-specific-event-of-a-taste"><span class="octicon octicon-link"></span></a>Remove the specific event of a taste</h4>
+
+<div class="highlight highlight-js"><pre><span class="c1">//ice.deleteTaste(taste, event);</span>
+<span class="nx">ice</span><span class="p">.</span><span class="nx">deleteTaste</span><span class="p">(</span><span class="s1">'say'</span><span class="p">,</span> <span class="s1">'click'</span><span class="p">);</span>
+</pre></div>
+
+<h3>
+<a name="run-the-ice-machine" class="anchor" href="#run-the-ice-machine"><span class="octicon octicon-link"></span></a>Run the ice machine</h3>
+
+<div class="highlight highlight-js"><pre><span class="nx">ice</span><span class="p">.</span><span class="nx">machine</span><span class="p">();</span>
+</pre></div>
+
+<h3>
+<a name="build-the-attribute-string" class="anchor" href="#build-the-attribute-string"><span class="octicon octicon-link"></span></a>Build the attribute string</h3>
+
+<div class="highlight highlight-js"><pre><span class="c1">//ice.coneWithTaste(taste);</span>
+<span class="kd">var</span> <span class="nx">sayAttr</span> <span class="o">=</span> <span class="nx">ice</span><span class="p">.</span><span class="nx">coneWithTaste</span><span class="p">(</span><span class="s1">'say'</span><span class="p">);</span> <span class="c1">//Will create [ice-say]</span>
+</pre></div>
+
+<h3>
+<a name="build-the-attribute-string-with-a-value" class="anchor" href="#build-the-attribute-string-with-a-value"><span class="octicon octicon-link"></span></a>Build the attribute string with a value</h3>
+
+<div class="highlight highlight-js"><pre><span class="c1">//ice.coneWithTaste(taste, consumer);</span>
+<span class="kd">var</span> <span class="nx">sayAttr</span> <span class="o">=</span> <span class="nx">ice</span><span class="p">.</span><span class="nx">coneWithTaste</span><span class="p">(</span><span class="s1">'say'</span><span class="p">,</span> <span class="s1">'hello'</span><span class="p">);</span> <span class="c1">//Will create [ice-say="hello"]</span>
+</pre></div>
+
+<h3>
+<a name="refresh-the-ice-machine" class="anchor" href="#refresh-the-ice-machine"><span class="octicon octicon-link"></span></a>Refresh the ice machine</h3>
+
+<div class="highlight highlight-js"><pre><span class="c1">//This function could be useful when you add new html elements by javascript.</span>
+<span class="nx">ice</span><span class="p">.</span><span class="nx">refreshMachine</span><span class="p">();</span>
+</pre></div>
+
+<h3>
+<a name="stop-the-ice-machine" class="anchor" href="#stop-the-ice-machine"><span class="octicon octicon-link"></span></a>Stop the ice machine</h3>
+
+<div class="highlight highlight-js"><pre><span class="c1">//This function will turn all events off that are setted by the ice machine</span>
+<span class="nx">ice</span><span class="p">.</span><span class="nx">stopMachine</span><span class="p">();</span>
+</pre></div>
       </section>
     </div>
     <footer>
