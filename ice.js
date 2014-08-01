@@ -62,4 +62,3 @@ ice = {
   }
 };
 
-ice.machine();
