@@ -43,7 +43,7 @@ ice.removeTaste('say');
 
 ####Remove the specific event of a taste
 ```js
-//ice.deleteTaste(taste, event);
+//ice.removeTaste(taste, event);
 ice.removeTaste('say', 'click');
 ```
 
