@@ -3,16 +3,18 @@ A javascript library over jQuery for javascript events combined with html attrib
 
 ##Howto use it
 
-###Change cone (attribute prefix)
+###Change prefix
 ```js
-ice.cone = "ice"; //you could change it to any name you want (data or ice preffered.)
+ice.prefix = "ice"; //you could change it to any name you want (data or ice preffered.)
 ```
 
 ###Add a taste with functionality
 ```js
-//ice.addTaste(taste, event, functionality);
-ice.addTaste('say', 'click', function() {
-  alert('Hello World');
+//ice.addTaste(taste, event array);
+ice.addTaste('say', {
+  'click' : function() {
+    alert('Hello World');
+  }
 });
 
 //This will trigger when clicked on any element with the ice-say attribute.
@@ -35,37 +37,25 @@ ice.addTaste('say', {
 
 ###Remove a taste
 ```js
-//ice.deleteTaste(taste);
-ice.deleteTaste('say');
+//ice.removeTaste(taste);
+ice.removeTaste('say');
 ```
 
 ####Remove the specific event of a taste
 ```js
 //ice.deleteTaste(taste, event);
-ice.deleteTaste('say', 'click');
+ice.removeTaste('say', 'click');
 ```
 
 ###Run the ice machine
 ```js
-ice.machine();
-```
-
-###Build the attribute string
-```js
-//ice.coneWithTaste(taste);
-var sayAttr = ice.coneWithTaste('say'); //Will create [ice-say]
-```
-
-###Build the attribute string with a value
-```js
-//ice.coneWithTaste(taste, consumer);
-var sayAttr = ice.coneWithTaste('say', 'hello'); //Will create [ice-say="hello"]
+ice.startMachine();
 ```
 
 ###Refresh the ice machine
 ```js
 //This function could be useful when you add new html elements by javascript.
-ice.refreshMachine();
+ice.restartMachine();
 ```
 
 ###Stop the ice machine
